@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     azurerm = {
-      source = "hashicorp/azurerm"
+      source  = "hashicorp/azurerm"
       version = "~>2.0"
     }
   }
@@ -11,8 +11,8 @@ provider "azurerm" {
 }
 
 resource "random_integer" "rnd_int" {
-  min     = 1
-  max     = 10000
+  min = 1
+  max = 10000
 }
 
 resource random_string "password" {
@@ -98,7 +98,7 @@ resource "azurerm_mysql_server" "example" {
   backup_retention_days             = 7
   infrastructure_encryption_enabled = true
   public_network_access_enabled     = true
-  ssl_enforcement_enabled           = false
+  ssl_enforcement_enabled           = true
 }
 
 resource "azurerm_postgresql_server" "example" {
