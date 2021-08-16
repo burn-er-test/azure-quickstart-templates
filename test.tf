@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     azurerm = {
-      source = "hashicorp/azurerm"
+      source  = "hashicorp/azurerm"
       version = "~>2.0"
     }
   }
@@ -11,8 +11,8 @@ provider "azurerm" {
 }
 
 resource "random_integer" "rnd_int" {
-  min     = 1
-  max     = 10000
+  min = 1
+  max = 10000
 }
 
 resource random_string "password" {
@@ -58,6 +58,7 @@ resource "azurerm_storage_account" "example" {
       retention_policy_days = 10
     }
   }
+  enable_https_traffic_only = true
 }
 
 resource "azurerm_sql_server" "example" {
