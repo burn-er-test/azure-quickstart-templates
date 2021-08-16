@@ -56,36 +56,6 @@ resource azurerm_network_watcher "network_watcher2" {
   resource_group_name = "testrg2"
 }
 
-resource azurerm_network_security_group "bad_sg2" {
-  location            = "East US"
-  name                = "nsg2"
-  resource_group_name = "testrg2"
-
-  security_rule {
-    access                     = "Allow"
-    direction                  = "Inbound"
-    name                       = "AllowSSH"
-    priority                   = 200
-    protocol                   = "TCP"
-    source_address_prefix      = "*"
-    source_port_range          = "*"
-    destination_port_range     = "22-22"
-    destination_address_prefix = "*"
-  }
-
-  security_rule {
-    access                     = "Allow"
-    direction                  = "Inbound"
-    name                       = "AllowRDP"
-    priority                   = 300
-    protocol                   = "TCP"
-    source_address_prefix      = "*"
-    source_port_range          = "*"
-    destination_port_range     = "3389-3389"
-    destination_address_prefix = "*"
-  }
-}
-
 resource azurerm_network_watcher_flow_log "flow_log2" {
   enabled                   = false
   network_security_group_id = azurerm_network_security_group.bad_sg2.id
