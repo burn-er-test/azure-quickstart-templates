@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     azurerm = {
-      source = "hashicorp/azurerm"
+      source  = "hashicorp/azurerm"
       version = "~>2.0"
     }
   }
@@ -19,15 +19,15 @@ resource "azurerm_virtual_network" "example2" {
 
 resource "azurerm_subnet" "example2" {
   name                 = "subnet2"
-  resource_group_name = "testrg2"
+  resource_group_name  = "testrg2"
   virtual_network_name = azurerm_virtual_network.example2.name
   address_prefixes     = ["10.0.0.0/24"]
 }
 
 resource "azurerm_network_interface" "ni_linux2" {
-  name                = "linux2"
-  location            = "East US"
-  resource_group_name = "testrg2"
+  name                          = "linux2"
+  location                      = "East US"
+  resource_group_name           = "testrg2"
   enable_accelerated_networking = false
 
   ip_configuration {
@@ -125,9 +125,10 @@ resource "azurerm_storage_account" "example2" {
       retention_policy_days = 10
     }
   }
+  enable_https_traffic_only = true
 }
 
 resource "random_integer" "rnd_int" {
-  min     = 1
-  max     = 10000
+  min = 1
+  max = 10000
 }
