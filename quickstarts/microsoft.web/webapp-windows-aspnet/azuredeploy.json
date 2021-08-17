@@ -42,6 +42,7 @@
             "properties": {
                 "name": "[parameters('webAppName')]",
                 "siteConfig": {
+                    "minTlsVersion": "1.2",
                     "appSettings": [
                         {
                             "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
